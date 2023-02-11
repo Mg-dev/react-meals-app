@@ -1,8 +1,12 @@
 import {useGlobalContext} from '../Context.js'
+import {NavLink} from 'react-router-dom'
 const Navbar = () => {
   const {fetchRandomMeal} =  useGlobalContext();
   const handleRandomMeal = () => {
     fetchRandomMeal();
+  }
+  const active = {
+    color: "red"
   }
     return (
       
@@ -15,16 +19,29 @@ const Navbar = () => {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <NavLink to="" className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link"
+            }>
+         Home
+          </NavLink>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+          <NavLink to="about" className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link"
+            }>
+         About
+          </NavLink>
         </li>
+        <li class="nav-item">
+          <NavLink to="contact" className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link"
+            }>
+         Contact
+          </NavLink>
+        </li>
+        
 
-        <li class="nav-item">
-          <a class="nav-link contact" href="#"
-          >Contact</a>
-        </li>
+        
         
       </ul>
       <form class="d-flex" role="search">

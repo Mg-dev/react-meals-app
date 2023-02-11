@@ -1,5 +1,4 @@
 
-import Navbar from '../components/Navbar'
 import Meals from '../components/Meals'
 
 const Home = () => {
