@@ -22,7 +22,7 @@ const AppProvider = ({ children }) => {
           setLoading(false)
       }, 1000);
     }
-    const fetchRandomMeal = (randomMealUrl) => {
+    const fetchRandomMeal = () => {
         fetchMeals(randomMealUrl);
     }
     useEffect((url)=>{

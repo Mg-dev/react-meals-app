@@ -5,12 +5,12 @@ const Navbar = () => {
   const {fetchRandomMeal,setSearchTerm} =  useGlobalContext();
   const [text , setText] = useState('')
   const handleRandomMeal = () => {
+    console.log('click')
     fetchRandomMeal();
   }
   const handleChange = (e) => {
     setText(e.target.value)
   }
-
   const handleSubmit = (e) => {
   e.preventDefault()
     if (text) {
