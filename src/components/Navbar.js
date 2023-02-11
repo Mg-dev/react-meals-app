@@ -1,13 +1,23 @@
 import {useGlobalContext} from '../Context.js'
 import {NavLink, Link} from 'react-router-dom'
+import {useState} from 'react'
 const Navbar = () => {
-  const {fetchRandomMeal} =  useGlobalContext();
+  const {fetchRandomMeal,setSearchTerm} =  useGlobalContext();
+  const [text , setText] = useState('')
   const handleRandomMeal = () => {
     fetchRandomMeal();
   }
-  const active = {
-    color: "red"
+  const handleChange = (e) => {
+    setText(e.target.value)
   }
+
+  const handleSubmit = (e) => {
+  e.preventDefault()
+    if (text) {
+      setSearchTerm(text)
+    }
+  }
+  
     return (
       
         <nav class="navbar navbar-expand-lg bg-light">
@@ -44,8 +54,8 @@ const Navbar = () => {
         
         
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+      <form class="d-flex" role="search" onSubmit={handleSubmit}>
+        <input value={text} class="form-control me-2" type="search" placeholder="Search" aria-label="Search" onChange={handleChange}/>
         <button class="btn btn-outline-success me-2" type="submit">Search</button>
       </form>
         <button className="btn btn-outline-dark" onClick={handleRandomMeal} type="button">suprise me!</button>
