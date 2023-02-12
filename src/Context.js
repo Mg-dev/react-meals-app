@@ -12,15 +12,18 @@ const AppProvider = ({ children }) => {
       setLoading(true)
       try {
         const {data} = await axios(url)
-        console.log(data.meals)
-        setMeals(data.meals)
+        if(data.meals){
+          setMeals(data.meals)
+        }else{
+          setMeals([])
+        }
       }
       catch (e) {
         console.log(e.response)
       }
       setTimeout(() => {
           setLoading(false)
-      }, 1000);
+      }, 500);
     }
     const fetchRandomMeal = () => {
         fetchMeals(randomMealUrl);
@@ -29,7 +32,9 @@ const AppProvider = ({ children }) => {
         fetchMeals(allMealsUrl)
     },[])
     useEffect(() => {
+      console.log(searchTerm)
       if(!searchTerm) return
+      //`${...}` is string interpolation with template literal
       fetchMeals(`${allMealsUrl}${searchTerm}`)
     }, [searchTerm])
   

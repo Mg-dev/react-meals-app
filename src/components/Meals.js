@@ -6,8 +6,8 @@ const Meals = () => {
     if(loading){
         
             return (
-                <section className="container vh-100 d-flex justify-content-center">
-                    <h3 className="text-center text-danger">loading...</h3>
+                <section className="container d-flex justify-content-center">
+                    <h3 className="text-center text-danger position-absolute bottom-50">loading...</h3>
                 </section>
             ) 
         
@@ -15,9 +15,9 @@ const Meals = () => {
 
     if(meals.length<1){
         return (
-            <section className="container vh-100">
-                <p className="text-danger">No meals matched your search term. Please try again.</p>
-            </section>
+        <section className="container d-flex justify-content-center">
+            <h3 className="text-center text-danger position-absolute bottom-50">No meals matched your search term. Please try again.</h3>
+        </section>
         )
     }
         return (
