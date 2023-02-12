@@ -1,6 +1,6 @@
 import { useGlobalContext } from "../Context";
 const Meals = () => {
-    const {meals,loading} = useGlobalContext();
+    const {meals,loading,selectMeal} = useGlobalContext();
     console.log(meals)
     
     if(loading){
@@ -29,7 +29,7 @@ const Meals = () => {
                  return(
                      <div key={idMeal} className="card mb-3 col-4" >
                          <div className="card-img-top">
-                             <img src={image} alt="meal-image" style={{width:"100%"}}/>
+                             <img onClick={()=>selectMeal(idMeal)} src={image} alt="meal-image" style={{width:"100%",cursor:"pointer"}}/>
                          </div>
                          <div className="card-body d-flex justify-content-between">
                          <h4 className="text-dark">{title}</h4>

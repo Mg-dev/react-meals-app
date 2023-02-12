@@ -292,7 +292,14 @@ cursor:pointer;
   transform:translateY(-2px)
 }
 /* Modal */
-
+.close-modal:hover{
+  color:rgb(116, 21, 21);
+  animation: rotate 1s ease-in;
+}
+@keyframes rotate {
+  0% {transform: rotate(360deg);}
+  100% {transform: rotate(360deg);}
+}
 .modal-overlay{
   position:fixed;
   top:0;
